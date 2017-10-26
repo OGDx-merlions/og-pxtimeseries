@@ -1,0 +1,55 @@
+<!--
+    Relative paths assume component is being run from inside an app or another component, where dependencies are flat
+    siblings. When this component is run from its own repo (e.g. tests, examples), we assume the server is started with
+    'gulp serve' (or similar server setup) to enable correct finding of bower dependencies for local runs.
+-->
+<link rel="import" href="../polymer/polymer.html"/>
+<link rel="import" href="bower_components/px-vis-timeseries.html">
+
+<link rel="import" href="css/og-pxtimeseries-styles.html">
+
+
+<!--
+REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
+
+### Usage
+
+    <og-pxtimeseries counter-value="1"></og-pxtimeseries>
+
+@element og-pxtimeseries
+@blurb REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
+@homepage index.html
+@demo index.html
+-->
+
+<dom-module id="og-pxtimeseries">
+  <template>
+    <style include="og-pxtimeseries-styles"></style>
+    <px-vis-timeseries
+      debounce-resize-timing="250"
+      width="900"
+      height="196"
+      id="timeSeriesPredix"
+      chart-horizontal-alignment="center"
+      chart-vertical-alignment="center"
+      margin='{"top":30,"bottom":20,"left":45,"right":65}'
+      tooltip-config='{}'
+      register-config='{"type":"horizontal"}'
+      selection-type="xy"
+      chart-data="[[timeSeriesData]]"
+
+      series-config='[[seriesConfig]]'
+      threshold-data='[]'
+      display-threshold-title
+      threshold-config='{"max":{"color":"red","dashPattern":"5,0","title":"MAX","showThresholdBox":true,"displayTitle":true}}'
+      x-axis-config='{"title":"Date"}'
+      y-axis-config='{}'
+      dynamic-menu-config='[]'
+      toolbar-config='{"config":{}}'
+      disable-navigator="[[disableNavigator]]"
+      hide-gridlines-x hide-gridlines-y
+      navigator-config='{"xAxisConfig":{"tickFormat":"%b %d"}}'>
+    </px-vis-timeseries>
+  </template>
+</dom-module>
+<script src="dist/og-pxtimeseries.js"></script>
